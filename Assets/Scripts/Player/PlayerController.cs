@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    public CharacterController characterController;
+    public FixedJoystick joystick;
 
-    // Update is called once per frame
+    [Header("Settings")]
+    public float speed = 3.0f;
+
+    // Private Variables
+    Vector3 input;
+
     void Update()
     {
-        
+        GetInput();
+        Move();
+        FaceMovementDirection();
+    }
+
+    private void GetInput()
+    {
+        // calculate direction based upon the joystick
+        input = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+    }
+
+    private void Move()
+    {
+        if (input.magnitude > 0.1)
+            characterController.Move(speed * transform.forward * Time.deltaTime);
+    }
+
+    private void FaceMovementDirection()
+    {
+        if (input == Vector3.zero) return;
+
+        // handle isometric direction
+        var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+        Vector3 isomtericDirection = matrix.MultiplyPoint3x4 (input);
+
+        transform.forward = isomtericDirection;
     }
 }
