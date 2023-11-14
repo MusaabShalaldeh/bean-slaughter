@@ -4,7 +4,8 @@ using UnityEngine;
 public class ModelEvents : MonoBehaviour
 {
     [Header("References")]
-    public AudioSource soundSource;
+    public AudioSource SoundSource;
+    public ParticleSystem FootParticle;
 
     [Header("Footstep Clips")]
     public List<AudioClip> concreteFootsteps; // default footstep sounds
@@ -12,8 +13,15 @@ public class ModelEvents : MonoBehaviour
     public void PlayRandomFootstep()
     {
         AudioClip clip = concreteFootsteps[Random.Range(0, concreteFootsteps.Count)];
-        soundSource.pitch = Random.Range(1f, 1.1f);
+        SoundSource.pitch = Random.Range(1f, 1.1f);
 
-        soundSource.PlayOneShot(clip);
+
+        SoundSource.PlayOneShot(clip);
+    }
+
+    public void PlayFootParitcle()
+    {
+        FootParticle.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+        FootParticle.Play();
     }
 }
