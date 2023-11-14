@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -47,5 +45,12 @@ public class PlayerController : MonoBehaviour
         Vector3 isomtericDirection = matrix.MultiplyPoint3x4 (input);
 
         transform.forward = isomtericDirection;
+    }
+
+    public bool IsMoving()
+    {
+        if (input.magnitude > 0.1)
+            return true;
+        else return false;
     }
 }
