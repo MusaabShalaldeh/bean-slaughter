@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
 
     // Private Variables
     Vector3 input;
+    Matrix4x4 matrix;
+
+    void Start()
+    {
+        matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+    }
 
     void Update()
     {
@@ -38,7 +44,6 @@ public class PlayerController : MonoBehaviour
         if (input == Vector3.zero) return;
 
         // handle isometric direction
-        var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
         Vector3 isomtericDirection = matrix.MultiplyPoint3x4 (input);
 
         transform.forward = isomtericDirection;
