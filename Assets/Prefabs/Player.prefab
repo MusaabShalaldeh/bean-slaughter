@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2841056760294020667}
   - component: {fileID: 7143372801957339399}
   - component: {fileID: 1930795370258821252}
+  - component: {fileID: 1134923178105039263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -75,6 +76,20 @@ MonoBehaviour:
   characterController: {fileID: 7143372801957339399}
   joystick: {fileID: 0}
   speed: 3
+--- !u!114 &1134923178105039263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722877908226556911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7493eaf940e045418eb1181a45e1fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraTransform: {fileID: 0}
+  followSpeed: 1
 --- !u!1 &2571826516180707711
 GameObject:
   m_ObjectHideFlags: 0

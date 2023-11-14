@@ -1146,6 +1146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1134923178105039263, guid: e081be8d056b9324c921aba903ebe169,
+        type: 3}
+      propertyPath: CameraTransform
+      value: 
+      objectReference: {fileID: 2041822872}
     - target: {fileID: 1930795370258821252, guid: e081be8d056b9324c921aba903ebe169,
         type: 3}
       propertyPath: joystick
