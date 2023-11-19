@@ -293,34 +293,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 788706996194731847, guid: eeb6eef3931b6be43bd35f2ef4462891,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 74247568}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb6eef3931b6be43bd35f2ef4462891, type: 3}
---- !u!1 &74247567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 788706996194731847, guid: eeb6eef3931b6be43bd35f2ef4462891,
-    type: 3}
-  m_PrefabInstance: {fileID: 74247566}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &74247568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74247567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31029155939e44d4eb0a9cb5580014bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: Bean
-  maxHealth: 120
-  speed: 2
-  isDead: 0
 --- !u!1 &87395780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,34 +5259,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7088037699212874487, guid: 3315e101a52bdf84786a6af9a93a0bdf,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 229301639}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3315e101a52bdf84786a6af9a93a0bdf, type: 3}
---- !u!1 &229301638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7088037699212874487, guid: 3315e101a52bdf84786a6af9a93a0bdf,
-    type: 3}
-  m_PrefabInstance: {fileID: 229301637}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &229301639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229301638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3098d831338fa4942b7fd187ea63d9ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: Floating Bean
-  maxHealth: 80
-  speed: 4
-  isDead: 0
 --- !u!1 &274767106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5918,6 +5866,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &861990668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861990658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab419c1f1e17f2488f14ebf47166243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Player
+  maxHealth: 250
+  speed: 3
+  isDead: 0
 --- !u!1 &874978410
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,6 +6440,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 87395783}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 722877908226556911, guid: e081be8d056b9324c921aba903ebe169,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 861990668}
     - targetCorrespondingSourceObject: {fileID: 722877908226556911, guid: e081be8d056b9324c921aba903ebe169,
         type: 3}
       insertIndex: -1
