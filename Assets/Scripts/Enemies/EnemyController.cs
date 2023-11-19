@@ -45,4 +45,12 @@ public class EnemyController : MonoBehaviour
         if (Physics.Raycast(destination, Vector3.down, groundLayer))
             isWalkPointsSet = true;
     }
+
+    public bool IsMoving()
+    {
+        if (agent.velocity.sqrMagnitude > 0) 
+            return true;
+        else
+            return false;
+    }
 }
