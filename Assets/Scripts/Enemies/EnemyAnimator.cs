@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class EnemyAnimator : MonoBehaviour
 {
     [Header("References")]
-    public PlayerController controller;
+    public EnemyController controller;
     public Animator animator;
 
     void Update()
