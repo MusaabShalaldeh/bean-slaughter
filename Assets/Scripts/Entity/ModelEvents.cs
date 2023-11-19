@@ -21,6 +21,9 @@ public class ModelEvents : MonoBehaviour
 
     public void PlayFootParitcle()
     {
+        if (FootParticle == null) 
+            return;
+
         FootParticle.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
         FootParticle.Play();
     }
