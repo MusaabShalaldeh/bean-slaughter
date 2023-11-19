@@ -13,10 +13,12 @@ public class EnemyController : MonoBehaviour
     [Header("Settings")]
     public float roamRange = 6.0f;
     public float stoppingDistance = 0.5f;
+    public Vector2 RestTime = new Vector2 (0.2f, 5);
 
     // Private Variables
     Vector3 destination;
     bool isWalkPointsSet;
+    bool isResting;
 
     void Start()
     {
@@ -30,9 +32,12 @@ public class EnemyController : MonoBehaviour
 
     void Patrol()
     {
+        if (isResting) 
+            return;
+
         if (!isWalkPointsSet) SearchForDestination();
         if(isWalkPointsSet) agent.SetDestination(destination);
-        if (Vector3.Distance(transform.position, destination) < stoppingDistance) isWalkPointsSet = false;
+        if (Vector3.Distance(transform.position, destination) < stoppingDistance) StartCoroutine(Rest(Random.Range(RestTime.x, RestTime.y)));
     }
 
     void SearchForDestination()
@@ -52,5 +57,15 @@ public class EnemyController : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    IEnumerator Rest(float time)
+    {
+        isResting = true;
+
+        yield return new WaitForSeconds(time);
+
+        isResting = false;
+        isWalkPointsSet = false;
     }
 }

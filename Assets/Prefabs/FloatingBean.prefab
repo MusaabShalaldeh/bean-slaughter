@@ -496,7 +496,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9003280609994705204}
   - component: {fileID: 8326242688923410304}
+  - component: {fileID: 807177472688681414}
+  - component: {fileID: 6053587007977931369}
   - component: {fileID: 7426964579477350480}
+  - component: {fileID: 7856837544673580088}
   m_Layer: 0
   m_Name: FloatingBean
   m_TagString: Untagged
@@ -536,6 +539,40 @@ MonoBehaviour:
   maxHealth: 80
   speed: 4
   isDead: 0
+--- !u!114 &807177472688681414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088037699212874487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc79d8f8a6ecc174e953006d465ba223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyEntity: {fileID: 8326242688923410304}
+  agent: {fileID: 7856837544673580088}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  roamRange: 6
+  stoppingDistance: 0.5
+  RestTime: {x: 1, y: 2}
+--- !u!114 &6053587007977931369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088037699212874487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d9612310b149342939552192fe2449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 807177472688681414}
+  animator: {fileID: 5481834947893826924}
 --- !u!143 &7426964579477350480
 CharacterController:
   m_ObjectHideFlags: 0
@@ -562,6 +599,28 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!195 &7856837544673580088
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088037699212874487}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.8
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7352915486289829749
 GameObject:
   m_ObjectHideFlags: 0
