@@ -15,4 +15,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.SetBool("isMoving", controller.IsMoving());
     }
+
+    public void PlayMeleeAttackAnimation()
+    {
+        animator.Play("Hammer Attack");
+    }
 }

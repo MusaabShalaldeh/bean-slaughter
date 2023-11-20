@@ -10,8 +10,18 @@ public abstract class Entity : MonoBehaviour
     public float speed = 3;
 
     // Private Variables
-    float currentHealth;
+    [SerializeField] float currentHealth;
     [HideInInspector] public bool isDead = false;
+
+    void OnEnable()
+    {
+        Initiate();
+    }
+
+    public void Initiate()
+    {
+        currentHealth = maxHealth;
+    }
 
     #region Health
 
