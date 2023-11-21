@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    [Header("References")]
+    public GameObject Model;
+
     [Header("Entity Data")]
     public string entityName = "Entity";
     public float maxHealth = 100;

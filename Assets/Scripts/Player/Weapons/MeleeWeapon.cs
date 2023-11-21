@@ -1,12 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeWeapon : MonoBehaviour
 {
-    [Header("References")]
-    public PlayerAnimator animator;
-
     [Header("Settings")]
     public float damage = 25.0f;
     public string targetTag = "Enemy";
@@ -14,11 +12,11 @@ public class MeleeWeapon : MonoBehaviour
     // Private Variables
     [SerializeField] public bool isActive = false;
 
-    public void Swing()
+    public void Swing(Action AttackAnimation)
     {
         if (isActive) return;
 
-        animator.PlayMeleeAttackAnimation();
+        AttackAnimation();
     }
 
     void OnTriggerStay(Collider other)

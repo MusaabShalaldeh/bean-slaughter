@@ -21,6 +21,11 @@ public class PlayerAnimator : MonoBehaviour
         animator.Play("Hammer Attack");
     }
 
+    public void PlayShootAnimation()
+    {
+        animator.Play("PistolShoot");
+    }
+
     public void SetWeaponIdleAnimation(bool state = false)
     {
         animator.SetBool("weaponState", state);

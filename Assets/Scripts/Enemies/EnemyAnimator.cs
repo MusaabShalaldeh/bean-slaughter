@@ -15,4 +15,9 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator.SetBool("isMoving", controller.IsMoving());
     }
+
+    public void PlayDeathAnimation()
+    {
+        animator.Play("Die");
+    }
 }

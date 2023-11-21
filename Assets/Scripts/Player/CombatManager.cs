@@ -13,20 +13,28 @@ public class CombatManager : MonoBehaviour
     [Header("References")]
     public MeleeWeapon Hammer;
     public Gun Pistol;
-    public GameObject MeleeDetector;
     public PlayerAnimator pAnimator;
 
     // Private Variables
-    WeaponState weaponState;
+    [HideInInspector] public WeaponState weaponState;
 
     void Start()
     {
-        SetWeaponState(WeaponState.ranged);
+        SetWeaponState(WeaponState.melee);
     }
 
     public void MeleeAttack()
     {
-        Hammer.Swing();
+        Hammer.Swing(() => {
+            pAnimator.PlayMeleeAttackAnimation();
+        });
+    }
+
+    public void RangedAttack(Transform target)
+    {
+        Pistol.Shoot(target, () => {
+            pAnimator.PlayShootAnimation();
+        });
     }
 
     void SetWeaponState(WeaponState s)
@@ -56,15 +64,14 @@ public class CombatManager : MonoBehaviour
     private void EnableMeleeWeapon()
     {
         Hammer.gameObject.SetActive(true);
-        MeleeDetector.SetActive(true);
         Pistol.gameObject.SetActive(false);
     }
 
     private void EnableRangedWeapon()
     {
         Pistol.gameObject.SetActive(true);
-        MeleeDetector.SetActive(false);
         Hammer.gameObject.SetActive(false);
+        Hammer.isActive = false;
     }
 
     bool IntToBool(int n)
