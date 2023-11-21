@@ -20,4 +20,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.Play("Hammer Attack");
     }
+
+    public void SetWeaponIdleAnimation(bool state = false)
+    {
+        animator.SetBool("weaponState", state);
+    }
 }
