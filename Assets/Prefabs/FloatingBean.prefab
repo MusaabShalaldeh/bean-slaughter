@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 4467444570324837856}
   - component: {fileID: 4394057660203715449}
   - component: {fileID: 455295047142598625}
+  - component: {fileID: 5622988664553947468}
   m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
@@ -240,6 +241,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5622988664553947468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178942493305409472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbf4d44617590744a4e0e28f131740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Barrel: {fileID: 2178942493305409472}
+  Bullet: {fileID: 5288248104132056383, guid: e872c0fb47184684ba2d85a8ace21886, type: 3}
+  bulletDamage: 10
+  bulletSpeed: 4
+  targetTag: Player
 --- !u!1 &3449197549569809590
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +532,7 @@ GameObject:
   - component: {fileID: 9003280609994705204}
   - component: {fileID: 8326242688923410304}
   - component: {fileID: 8924825832272906149}
+  - component: {fileID: 4556516351345259194}
   - component: {fileID: 807177472688681414}
   - component: {fileID: 6053587007977931369}
   - component: {fileID: 7426964579477350480}
@@ -579,12 +598,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   recheckTime: 0.05
-  autoAttackTime: 0.5
+  autoAttackTime: 0.2
   meleeRange: 1.5
   maxRange: 6
   debugMode: 1
   target: {fileID: 0}
   lastTarget: {fileID: 0}
+  combatManager: {fileID: 4556516351345259194}
+--- !u!114 &4556516351345259194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088037699212874487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5cc56dae9266a45a8264b202e0e557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6053587007977931369}
+  Mouth: {fileID: 5622988664553947468}
+  enemyController: {fileID: 807177472688681414}
+  stopWhenAttackingPlayer: 1
 --- !u!114 &807177472688681414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +641,7 @@ MonoBehaviour:
   roamRange: 6
   stoppingDistance: 0.5
   RestTime: {x: 1, y: 2}
+  stopWhenAttacking: 0
 --- !u!114 &6053587007977931369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,7 +1053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2310322648722388806}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ModelContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

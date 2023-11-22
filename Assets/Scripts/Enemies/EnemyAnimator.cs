@@ -20,4 +20,9 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator.Play("Die");
     }
+
+    public void PlayAttackAnimation()
+    {
+        animator.Play("Attack");
+    }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class WeaponEvents : MonoBehaviour
 {
-    public MeleeWeapon Hammer;
+    public MeleeWeapon Weapon;
 
     public void EnableWeapon()
     {
-        Hammer.isActive = true;
+        Weapon.isActive = true;
     }
 
     public void DisableWeapon()
     {
-        Hammer.isActive = false;
+        Weapon.isActive = false;
     }
 }

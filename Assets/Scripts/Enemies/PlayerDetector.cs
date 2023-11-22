@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerDetector : EntityDetector
 {
+    [Header("Custom Referefences")]
+    public EnemyCombatManager combatManager;
+
     EnemyController enemyController => (EnemyController)controller;
 
     public override IEnumerator TargetingHandler()
@@ -15,7 +18,6 @@ public class PlayerDetector : EntityDetector
 
             if (lastTarget != target) OnFirstTargetSight();
             enemyController.CheckForPlayer(target);
-            
 
             yield return new WaitForSeconds(recheckTime);
         }
@@ -29,10 +31,12 @@ public class PlayerDetector : EntityDetector
             {
                 if (Vector3.Distance(transform.position, target.transform.position) <= meleeRange)
                 {
+                    combatManager.Attack(target.transform);
                     Debug.Log("attacking player in melee range!");
                 }
                 else if (!controller.IsMoving())
                 {
+                    combatManager.Attack(target.transform);
                     Debug.Log("attacking player in ranged range!");
                 }
             }
