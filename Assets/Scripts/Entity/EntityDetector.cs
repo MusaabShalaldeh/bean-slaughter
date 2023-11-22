@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDetector : MonoBehaviour
+public abstract class EntityDetector : MonoBehaviour
 {
     [Header("References")]
-    public Player player;
-    public PlayerController controller;
-    public CombatManager combatManager;
+    public Entity entity;
+    public EntityController controller;
 
     [Header("Settings")]
     public LayerMask targetLayer;
@@ -20,7 +19,7 @@ public class EnemyDetector : MonoBehaviour
 
     // Private Variables
     [HideInInspector] public Entity target;
-    Entity lastTarget;
+    [HideInInspector] public Entity lastTarget;
 
     void Start()
     {
@@ -33,52 +32,19 @@ public class EnemyDetector : MonoBehaviour
         LockOnTarget();
     }
 
-    IEnumerator AttackChecker()
-    {
-        while (!player.isDead)
-        {
-            if (target != null)
-            {
-                if (Vector3.Distance(transform.position, target.transform.position) <= meleeRange 
-                    && combatManager.weaponState == CombatManager.WeaponState.melee)
-                {
-                    combatManager.MeleeAttack();
-                }
-                else if(!controller.IsMoving() && combatManager.weaponState == CombatManager.WeaponState.ranged)
-                {
-                    combatManager.RangedAttack(target.transform);
-                }
-            }
+    public abstract IEnumerator AttackChecker();
 
-            yield return new WaitForSeconds(autoAttackTime);
-        }
-    }
+    public abstract void OnFirstTargetSight();
 
     void LockOnTarget()
     {
         if (target != null)
         {
-            if (!controller.IsMoving()) player.transform.DOLookAt(target.transform.position, 0.1f);
+            if (!controller.IsMoving()) entity.transform.DOLookAt(target.transform.position, 0.1f);
         }
     }
 
-    void OnFirstTargetSight()
-    {
-
-    }
-
-    IEnumerator TargetingHandler()
-    {
-        while (!player.isDead)
-        {
-            lastTarget = target;
-            target = GetValidTarget();
-
-            if (lastTarget != target) OnFirstTargetSight();
-
-            yield return new WaitForSeconds(recheckTime);
-        }
-    }
+    public abstract IEnumerator TargetingHandler();
 
     public Entity GetValidTarget()
     {
@@ -114,14 +80,14 @@ public class EnemyDetector : MonoBehaviour
         return chosenTarget;
     }
 
-    bool InSight(Transform player, Transform enemy)
+    bool InSight(Transform entity, Transform target)
     {
-        Vector3 direction = enemy.position - player.position;
-        Vector3 pos = new Vector3(player.position.x, player.position.y + 0.5f, player.position.z);
+        Vector3 direction = target.position - entity.position;
+        Vector3 pos = new Vector3(entity.position.x, entity.position.y + 0.5f, entity.position.z);
 
         if (Physics.Raycast(pos, direction, out RaycastHit hit))
         {
-            if (hit.transform == enemy)
+            if (hit.transform == target)
             {
                 if(debugMode) 
                     Debug.DrawLine(pos, hit.point, Color.yellow, 0.1f);

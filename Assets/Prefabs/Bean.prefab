@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6630416667107689787}
   - component: {fileID: 2660877164096090920}
+  - component: {fileID: 1678713445002062287}
   - component: {fileID: 2503739090398295359}
   - component: {fileID: 2363390732164617985}
   - component: {fileID: 5856575295599861251}
@@ -57,6 +58,31 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   enemyAnimator: {fileID: 2363390732164617985}
+--- !u!114 &1678713445002062287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788706996194731847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c45bbfb8117e440ba4882fe195223b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 2660877164096090920}
+  controller: {fileID: 2503739090398295359}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  recheckTime: 0.05
+  autoAttackTime: 0.5
+  meleeRange: 1.5
+  maxRange: 6
+  debugMode: 1
+  target: {fileID: 0}
+  lastTarget: {fileID: 0}
+  enemyController: {fileID: 2503739090398295359}
 --- !u!114 &2503739090398295359
 MonoBehaviour:
   m_ObjectHideFlags: 0

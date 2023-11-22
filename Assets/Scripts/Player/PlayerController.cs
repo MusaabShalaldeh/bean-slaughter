@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : EntityController
 {
     [Header("References")]
     public CharacterController characterController;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         transform.forward = isomtericDirection;
     }
 
-    public bool IsMoving()
+    public override bool IsMoving()
     {
         if (input.magnitude > 0.1)
             return true;

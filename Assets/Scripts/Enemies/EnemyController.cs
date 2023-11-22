@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : EntityController
 {
     [Header("References")]
     public Entity EnemyEntity;
@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     Vector3 destination;
     bool isWalkPointsSet;
     bool isResting;
+    bool hasSpottedPlayer = false;
 
     void Start()
     {
@@ -27,7 +28,27 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        Patrol();
+        if(!hasSpottedPlayer)
+            Patrol();
+        else
+            agent.SetDestination(destination);
+    }
+
+    public void CheckForPlayer(Entity player)
+    {
+        if (player == null) return;
+
+        hasSpottedPlayer = true;
+        agent.isStopped = true;
+
+        destination = GetMeleeRangePosition(player.transform);
+
+        agent.isStopped = false;
+    }
+
+    public void PlayerEscaped()
+    {
+        hasSpottedPlayer = false;
     }
 
     void Patrol()
@@ -51,14 +72,6 @@ public class EnemyController : MonoBehaviour
             isWalkPointsSet = true;
     }
 
-    public bool IsMoving()
-    {
-        if (agent.velocity.sqrMagnitude > 0) 
-            return true;
-        else
-            return false;
-    }
-
     IEnumerator Rest(float time)
     {
         isResting = true;
@@ -68,4 +81,20 @@ public class EnemyController : MonoBehaviour
         isResting = false;
         isWalkPointsSet = false;
     }
+
+    Vector3 GetMeleeRangePosition(Transform t)
+    {
+        Vector3 pos = t.position + (transform.forward * -1) * 1.5f;
+
+        return pos;
+    }
+
+    public override bool IsMoving()
+    {
+        if (agent.velocity.sqrMagnitude > 0) 
+            return true;
+        else
+            return false;
+    }
+
 }
