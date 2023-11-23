@@ -6068,7 +6068,7 @@ MonoBehaviour:
   Model: {fileID: 6486067188795286421}
   soundSource: {fileID: 5896644995468844786}
   entityName: Player
-  maxHealth: 100
+  maxHealth: 200
   speed: 3
   invinsibilityTime: 0.4
   DeathSFX: {fileID: 8300000, guid: 05d1e614a6a769c4d8acb7ef17c4e1ab, type: 3}
@@ -6076,6 +6076,7 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   playerAnimator: {fileID: 2669416801997821902}
+  playerController: {fileID: 4009332928974523188}
 --- !u!114 &3132655403730673249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6546,7 +6547,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.09, y: 0.18, z: 0.09}
+  m_Size: {x: 0.12, y: 0.2, z: 0.12}
   m_Center: {x: 0.16, y: 0, z: 0}
 --- !u!1 &4870373969544362031
 GameObject:

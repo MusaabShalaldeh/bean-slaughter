@@ -29,12 +29,12 @@ public class MeleeWeapon : MonoBehaviour
         AttackAnimation();
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (!isActive || other.tag != targetTag) 
             return;
 
-        isActive = false;
+        //isActive = false;
 
         Entity target = other.GetComponent<Entity>();
         Vector3 impactPoint = new Vector3(target.transform.position.x, target.transform.position.y + enemyHeadOffset, target.transform.position.z);

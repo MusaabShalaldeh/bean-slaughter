@@ -20,6 +20,7 @@ public class EnemyController : EntityController
     bool isWalkPointsSet;
     bool isResting;
     bool hasSpottedPlayer = false;
+    bool canMove = true;
     [HideInInspector] public bool stopWhenAttacking;
 
     void Start()
@@ -29,6 +30,9 @@ public class EnemyController : EntityController
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         HandleMovement();
     }
 
@@ -38,7 +42,7 @@ public class EnemyController : EntityController
             Patrol();
         else
         {
-            if (Vector3.Distance(transform.position, destination) <= stoppingDistance + 0.2f)
+            if (Vector3.Distance(transform.position, destination) <= stoppingDistance)
             {
                 agent.isStopped = true;
                 return;
@@ -102,7 +106,7 @@ public class EnemyController : EntityController
 
     Vector3 GetMeleeRangePosition(Transform t)
     {
-        Vector3 pos = t.position + (transform.forward * -1) * 1.5f;
+        Vector3 pos = t.position + (transform.forward * -1) * 1.1f;
 
         return pos;
     }
@@ -113,6 +117,16 @@ public class EnemyController : EntityController
             return true;
         else
             return false;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 
 }

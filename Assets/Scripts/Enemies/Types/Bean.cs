@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Bean : Entity
 {
     [Header("References")]
+    public EnemyController enemyController;
     public EnemyAnimator enemyAnimator;
 
     public override void OnDamageTaken()
@@ -27,6 +28,7 @@ public class Bean : Entity
 
     public override IEnumerator DieSequence()
     {
+        enemyController.DisableMovement();
         soundSource.PlayOneShot(HitSFX);
         soundSource.PlayOneShot(DeathSFX);
 

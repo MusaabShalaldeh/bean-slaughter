@@ -23,6 +23,7 @@ public class Player : Entity
 
     public override IEnumerator DieSequence()
     {
+        playerController.DisableMovement();
         soundSource.PlayOneShot(HitSFX);
         soundSource.PlayOneShot(DeathSFX);
 
@@ -40,7 +41,6 @@ public class Player : Entity
     {
         Debug.Log("Gameover");
 
-        playerController.DisableMovement();
         SceneManager.LoadScene(0);
     }
 }
