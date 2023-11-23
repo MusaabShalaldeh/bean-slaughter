@@ -7,6 +7,8 @@ public class Player : Entity
     public override void OnDamageTaken()
     {
         Debug.Log(entityName + " taken damage!");
+
+        soundSource.PlayOneShot(HitSFX);
     }
 
     public override void OnHeal()

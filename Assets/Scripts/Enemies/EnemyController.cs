@@ -38,7 +38,7 @@ public class EnemyController : EntityController
             Patrol();
         else
         {
-            if (Vector3.Distance(transform.position, destination) <= stoppingDistance)
+            if (Vector3.Distance(transform.position, destination) <= stoppingDistance + 0.2f)
             {
                 agent.isStopped = true;
                 return;

@@ -8,6 +8,13 @@ public class Gun : MonoBehaviour
     [Header("References")]
     public GameObject Barrel;
     public GameObject Bullet;
+    public AudioSource SoundSource;
+
+    [Header("Sound")]
+    public AudioClip ShootSFX;
+
+    [Header("Graphic Effect")]
+    public ParticleSystem ShootGFX;
 
     [Header("Settings")]
     public float bulletDamage = 10;
@@ -25,6 +32,25 @@ public class Gun : MonoBehaviour
         Projectile projectile = b.GetComponent<Projectile>();
 
         PlayAnimation();
+        PlayShootSound();
+        PlayShootEffect();
         projectile.Shoot(direction, bulletSpeed, bulletDamage, targetTag);
+    }
+
+    void PlayShootSound()
+    {
+        if (SoundSource == null || ShootSFX == null)
+            return;
+
+        SoundSource.PlayOneShot(ShootSFX);
+    }
+
+    void PlayShootEffect()
+    {
+        if (ShootGFX == null) 
+            return;
+
+        ShootGFX.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+        ShootGFX.Play();
     }
 }

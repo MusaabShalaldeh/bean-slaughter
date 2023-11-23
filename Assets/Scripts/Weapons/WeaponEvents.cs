@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponEvents : MonoBehaviour
 {
+    [Header("References")]
     public MeleeWeapon Weapon;
 
     public void EnableWeapon()
@@ -14,5 +15,10 @@ public class WeaponEvents : MonoBehaviour
     public void DisableWeapon()
     {
         Weapon.isActive = false;
+    }
+
+    public void PlaySwingSound()
+    {
+        Weapon.PlaySwingSound();
     }
 }

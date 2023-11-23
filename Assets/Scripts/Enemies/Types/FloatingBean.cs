@@ -16,6 +16,8 @@ public class FloatingBean : Entity
             {
                 Model.transform.DOScaleY(1, 0.15f);
             });
+
+        soundSource.PlayOneShot(HitSFX);
     }
 
     public override void OnHeal()

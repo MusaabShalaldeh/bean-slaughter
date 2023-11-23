@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public abstract class EntityDetector : MonoBehaviour
 {
@@ -40,7 +41,13 @@ public abstract class EntityDetector : MonoBehaviour
     {
         if (target != null)
         {
-            if (!controller.IsMoving()) entity.transform.DOLookAt(target.transform.position, 0.1f);
+            if (!controller.IsMoving()) 
+            {
+                Vector3 direction = target.transform.position - entity.transform.position;
+                direction.y = 0;
+
+                entity.transform.rotation = Quaternion.LookRotation(direction);
+            }
         }
     }
 

@@ -241,11 +241,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bean
       objectReference: {fileID: 0}
-    - target: {fileID: 1678713445002062287, guid: eeb6eef3931b6be43bd35f2ef4462891,
-        type: 3}
-      propertyPath: autoAttackTime
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6630416667107689787, guid: eeb6eef3931b6be43bd35f2ef4462891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -313,11 +308,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloatingBean
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924825832272906149, guid: 3315e101a52bdf84786a6af9a93a0bdf,
-        type: 3}
-      propertyPath: autoAttackTime
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9003280609994705204, guid: 3315e101a52bdf84786a6af9a93a0bdf,
         type: 3}
@@ -631,11 +621,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -5
   far clip plane: 30
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
