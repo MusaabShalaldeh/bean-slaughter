@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2478178603883316954}
@@ -56,9 +56,10 @@ MonoBehaviour:
   Model: {fileID: 1514174694302301409}
   soundSource: {fileID: 1357934679611170734}
   entityName: Bean
-  maxHealth: 999
+  maxHealth: 50
   speed: 2
   invinsibilityTime: 0.38
+  DeathSFX: {fileID: 8300000, guid: c710f4a99e05f5149b0fe1494da82421, type: 3}
   HitSFX: {fileID: 8300000, guid: ea54aaf5d96e0cc408ade1c537bc099f, type: 3}
   currentHealth: 0
   isDead: 0
@@ -483,7 +484,7 @@ MonoBehaviour:
     type: 3}
   damage: 25
   targetTag: Player
-  enemyHeadOffset: 1
+  enemyHeadOffset: 1.2
   isActive: 0
 --- !u!65 &8455391390025480512
 BoxCollider:

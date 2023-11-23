@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
+    [Header("References")]
+    public PlayerAnimator playerAnimator;
+    public PlayerController playerController;
+
     public override void OnDamageTaken()
     {
         Debug.Log(entityName + " taken damage!");
@@ -18,13 +23,24 @@ public class Player : Entity
 
     public override IEnumerator DieSequence()
     {
+        soundSource.PlayOneShot(HitSFX);
+        soundSource.PlayOneShot(DeathSFX);
+
+        playerAnimator.PlayDeathAnimation();
         Debug.Log(entityName + " is dying...");
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(5.0f);
 
         Debug.Log(entityName + " is dead.");
-        Destroy(gameObject);
 
+        OnPlayerDeath();
+    }
+
+    void OnPlayerDeath()
+    {
         Debug.Log("Gameover");
+
+        playerController.DisableMovement();
+        SceneManager.LoadScene(0);
     }
 }

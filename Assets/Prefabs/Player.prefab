@@ -6068,12 +6068,14 @@ MonoBehaviour:
   Model: {fileID: 6486067188795286421}
   soundSource: {fileID: 5896644995468844786}
   entityName: Player
-  maxHealth: 99999
+  maxHealth: 100
   speed: 3
   invinsibilityTime: 0.4
+  DeathSFX: {fileID: 8300000, guid: 05d1e614a6a769c4d8acb7ef17c4e1ab, type: 3}
   HitSFX: {fileID: 8300000, guid: 6fdb5f476969ab1428a724be4caf4363, type: 3}
   currentHealth: 0
   isDead: 0
+  playerAnimator: {fileID: 2669416801997821902}
 --- !u!114 &3132655403730673249
 MonoBehaviour:
   m_ObjectHideFlags: 0

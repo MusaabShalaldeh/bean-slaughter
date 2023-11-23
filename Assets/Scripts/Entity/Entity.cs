@@ -15,6 +15,7 @@ public abstract class Entity : MonoBehaviour
     public float invinsibilityTime = 0.4f;
 
     [Header("Sound Effects")]
+    public AudioClip DeathSFX;
     public AudioClip HitSFX;
 
     // Private Variables

@@ -12,6 +12,7 @@ public class PlayerController : EntityController
     // Private Variables
     Vector3 input;
     Matrix4x4 matrix;
+    bool canMove = true;
 
     void Start()
     {
@@ -20,6 +21,9 @@ public class PlayerController : EntityController
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         GetInput();
         Move();
         FaceMovementDirection();
@@ -52,5 +56,15 @@ public class PlayerController : EntityController
         if (input.magnitude > 0.1)
             return true;
         else return false;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }

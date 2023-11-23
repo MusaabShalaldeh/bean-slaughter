@@ -30,4 +30,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.SetBool("weaponState", state);
     }
+
+    public void PlayDeathAnimation()
+    {
+        animator.Play("Die");
+    }
 }

@@ -27,6 +27,9 @@ public class FloatingBean : Entity
 
     public override IEnumerator DieSequence()
     {
+        soundSource.PlayOneShot(HitSFX);
+        soundSource.PlayOneShot(DeathSFX);
+
         Debug.Log(entityName + " is dying...");
         enemyAnimator.PlayDeathAnimation();
 

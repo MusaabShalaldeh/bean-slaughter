@@ -10380,6 +10380,7 @@ MonoBehaviour:
   maxHealth: 80
   speed: 4
   invinsibilityTime: 0.4
+  DeathSFX: {fileID: 8300000, guid: 798beee61c96f6744bcde84618d708fe, type: 3}
   HitSFX: {fileID: 8300000, guid: ea54aaf5d96e0cc408ade1c537bc099f, type: 3}
   currentHealth: 0
   isDead: 0
