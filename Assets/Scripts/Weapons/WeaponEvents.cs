@@ -9,12 +9,12 @@ public class WeaponEvents : MonoBehaviour
 
     public void EnableWeapon()
     {
-        Weapon.isActive = true;
+        Weapon.ActivateWeapon();
     }
 
     public void DisableWeapon()
     {
-        Weapon.isActive = false;
+        Weapon.DeactivateWeapon();
     }
 
     public void PlaySwingSound()

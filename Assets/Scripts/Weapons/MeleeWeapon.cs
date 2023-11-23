@@ -21,6 +21,12 @@ public class MeleeWeapon : MonoBehaviour
 
     // Private Variables
     [SerializeField] public bool isActive = false;
+    Collider WeaponCollider;
+
+    private void Start()
+    {
+        WeaponCollider = GetComponent<Collider>();
+    }
 
     public void Swing(Action AttackAnimation)
     {
@@ -64,5 +70,17 @@ public class MeleeWeapon : MonoBehaviour
 
         GameObject spawnedEffect = Instantiate(ImpactEffect, position, Quaternion.Euler(0, 0, 0));
         Destroy(spawnedEffect, 0.6f);
+    }
+
+    public void ActivateWeapon()
+    {
+        WeaponCollider.enabled = true;
+        isActive = true;
+    }
+
+    public void DeactivateWeapon()
+    {
+        WeaponCollider.enabled = false;
+        isActive = false;
     }
 }

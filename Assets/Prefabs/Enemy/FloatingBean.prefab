@@ -10377,7 +10377,7 @@ MonoBehaviour:
   Model: {fileID: 8370105267563738749}
   soundSource: {fileID: 8852153671206624960}
   entityName: Floating Bean
-  maxHealth: 999
+  maxHealth: 20
   speed: 4
   invinsibilityTime: 0.4
   DeathSFX: {fileID: 8300000, guid: 798beee61c96f6744bcde84618d708fe, type: 3}

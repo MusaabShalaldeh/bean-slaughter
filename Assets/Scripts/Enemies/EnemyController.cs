@@ -55,7 +55,12 @@ public class EnemyController : EntityController
 
     public void CheckForPlayer(Entity player)
     {
-        if (player == null) return;
+        if (player == null) 
+        {
+            hasSpottedPlayer = false;
+            agent.isStopped = false;
+            return;
+        }
 
         hasSpottedPlayer = true;
         agent.isStopped = true;

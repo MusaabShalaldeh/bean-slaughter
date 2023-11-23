@@ -56,7 +56,7 @@ MonoBehaviour:
   Model: {fileID: 1514174694302301409}
   soundSource: {fileID: 1357934679611170734}
   entityName: Bean
-  maxHealth: 999
+  maxHealth: 35
   speed: 2
   invinsibilityTime: 0.38
   DeathSFX: {fileID: 8300000, guid: c710f4a99e05f5149b0fe1494da82421, type: 3}
