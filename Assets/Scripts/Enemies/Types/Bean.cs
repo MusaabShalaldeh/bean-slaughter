@@ -8,6 +8,7 @@ public class Bean : Entity
     [Header("References")]
     public EnemyController enemyController;
     public EnemyAnimator enemyAnimator;
+    public LootSource lootSource;
 
     public override void OnDamageTaken()
     {
@@ -38,7 +39,7 @@ public class Bean : Entity
         yield return new WaitForSeconds(0.5f);
 
         Debug.Log(entityName + " is dead.");
-
+        lootSource.DropRewards();
         RoundsManager.instance.OnEnemyDeath();
         Destroy(gameObject);
     }

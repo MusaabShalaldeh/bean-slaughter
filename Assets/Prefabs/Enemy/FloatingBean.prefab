@@ -10336,6 +10336,7 @@ GameObject:
   - component: {fileID: 4556516351345259194}
   - component: {fileID: 807177472688681414}
   - component: {fileID: 6053587007977931369}
+  - component: {fileID: 4897535685831020150}
   - component: {fileID: 7426964579477350480}
   - component: {fileID: 7856837544673580088}
   - component: {fileID: 8852153671206624960}
@@ -10379,13 +10380,14 @@ MonoBehaviour:
   entityName: Floating Bean
   maxHealth: 20
   speed: 4
-  invinsibilityTime: 0.4
+  invinsibilityTime: 0.3
   DeathSFX: {fileID: 8300000, guid: 798beee61c96f6744bcde84618d708fe, type: 3}
   HitSFX: {fileID: 8300000, guid: ea54aaf5d96e0cc408ade1c537bc099f, type: 3}
   currentHealth: 0
   isDead: 0
   enemyController: {fileID: 807177472688681414}
   enemyAnimator: {fileID: 6053587007977931369}
+  lootSource: {fileID: 4897535685831020150}
 --- !u!114 &8924825832272906149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10462,6 +10464,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 807177472688681414}
   animator: {fileID: 5481834947893826924}
+--- !u!114 &4897535685831020150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088037699212874487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cdbee43948be349bec529e37fe8dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Coin: {fileID: 7877926621602138454, guid: 36a3162a80b70a847a2a724a5c7153b5, type: 3}
+  scoreReward: 10
+  coinsReward: 1
 --- !u!143 &7426964579477350480
 CharacterController:
   m_ObjectHideFlags: 0
