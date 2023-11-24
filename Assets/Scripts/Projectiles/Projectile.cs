@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         targetTag = _targetTag;
         impactDamage = _impactDamage;
         isActive = true;
-        Debug.Log("bullet fired");
+        // Debug.Log("bullet fired");
         Destroy(gameObject, 5);
     }
 

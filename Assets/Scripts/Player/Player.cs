@@ -11,14 +11,14 @@ public class Player : Entity
 
     public override void OnDamageTaken()
     {
-        Debug.Log(entityName + " taken damage!");
+        // Debug.Log(entityName + " taken damage!");
 
         soundSource.PlayOneShot(HitSFX);
     }
 
     public override void OnHeal()
     {
-        Debug.Log(entityName + " was healed!");
+        // Debug.Log(entityName + " was healed!");
     }
 
     public override IEnumerator DieSequence()
@@ -31,18 +31,18 @@ public class Player : Entity
         playerAnimator.PlayDeathAnimation();
         playerAnimator.SetWeaponIdleAnimation(false);
         playerAnimator.ChangeGunConstraintWeight(0);
-        Debug.Log(entityName + " is dying...");
+        // Debug.Log(entityName + " is dying...");
 
         yield return new WaitForSeconds(5.0f);
 
-        Debug.Log(entityName + " is dead.");
+        // Debug.Log(entityName + " is dead.");
 
         OnPlayerDeath();
     }
 
     void OnPlayerDeath()
     {
-        Debug.Log("Gameover");
+        // Debug.Log("Gameover");
 
         GameManager.instance.OnGameEnd();
     }

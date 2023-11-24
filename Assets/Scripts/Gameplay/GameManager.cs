@@ -1,3 +1,4 @@
+using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void OnGameStart()
     {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "New Game Started");
+        
         VisualizeNumber(coinsText, UserData.instance.coins);
         VisualizeNumber(scoreText, score);
     }
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
     public void OnGameEnd()
     {
         UserData.instance.UpdateScore(score);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Score Achieved", score);
 
         UserData.instance.SaveData();
         SceneManager.LoadScene(0);
