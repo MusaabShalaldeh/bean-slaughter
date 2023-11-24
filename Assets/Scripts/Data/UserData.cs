@@ -1,3 +1,4 @@
+using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class UserData : MonoBehaviour
 
     void Start()
     {
+        GameAnalytics.Initialize();
+
         score = PlayerPrefs.GetInt("score", 0);
         coins = PlayerPrefs.GetInt("coins", 0);
     }

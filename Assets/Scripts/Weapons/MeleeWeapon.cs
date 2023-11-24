@@ -53,7 +53,7 @@ public class MeleeWeapon : MonoBehaviour
     void DealDamage(Entity target)
     {
         target.TakeDamage(damage);
-        Debug.Log(target.entityName + " has taken " + damage.ToString() + " points of damage.");
+        // Debug.Log(target.entityName + " has taken " + damage.ToString() + " points of damage.");
     }
 
     public void PlaySwingSound()

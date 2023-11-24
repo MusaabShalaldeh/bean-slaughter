@@ -32,12 +32,12 @@ public class PlayerDetector : EntityDetector
                 if (Vector3.Distance(transform.position, target.transform.position) <= meleeRange)
                 {
                     combatManager.Attack(target.transform);
-                    Debug.Log("attacking player in melee range!");
+                    // Debug.Log("attacking player in melee range!");
                 }
                 else if (!controller.IsMoving())
                 {
                     combatManager.Attack(target.transform);
-                    Debug.Log("attacking player in ranged range!");
+                    // Debug.Log("attacking player in ranged range!");
                 }
             }
             else
