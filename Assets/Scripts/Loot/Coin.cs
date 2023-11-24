@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasBeenTriggered)
+        if (hasBeenTriggered || other.tag != "Player")
             return;
 
         hasBeenTriggered = true;
