@@ -38,6 +38,8 @@ public class Bean : Entity
         yield return new WaitForSeconds(0.5f);
 
         Debug.Log(entityName + " is dead.");
+
+        RoundsManager.instance.OnEnemyDeath();
         Destroy(gameObject);
     }
 }

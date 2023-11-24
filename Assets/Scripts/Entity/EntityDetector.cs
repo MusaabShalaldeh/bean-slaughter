@@ -39,15 +39,15 @@ public abstract class EntityDetector : MonoBehaviour
 
     void LockOnTarget()
     {
-        if (target != null)
-        {
-            if (!controller.IsMoving()) 
-            {
-                Vector3 direction = target.transform.position - entity.transform.position;
-                direction.y = 0;
+        if (target == null || entity.isDead)
+            return;
 
-                entity.transform.rotation = Quaternion.LookRotation(direction);
-            }
+        if (!controller.IsMoving()) 
+        {
+            Vector3 direction = target.transform.position - entity.transform.position;
+            direction.y = 0;
+
+            entity.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 
