@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -45,7 +44,7 @@ public class Player : Entity
     {
         Debug.Log("Gameover");
 
-        SceneManager.LoadScene(0);
+        GameManager.instance.OnGameEnd();
     }
 
     void DisableObjects()
