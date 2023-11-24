@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene(1);
