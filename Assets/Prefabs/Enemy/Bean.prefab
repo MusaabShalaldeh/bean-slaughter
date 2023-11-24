@@ -56,9 +56,9 @@ MonoBehaviour:
   Model: {fileID: 1514174694302301409}
   soundSource: {fileID: 1357934679611170734}
   entityName: Bean
-  maxHealth: 35
+  maxHealth: 100
   speed: 2
-  invinsibilityTime: 0.38
+  invinsibilityTime: 0.3
   DeathSFX: {fileID: 8300000, guid: c710f4a99e05f5149b0fe1494da82421, type: 3}
   HitSFX: {fileID: 8300000, guid: ea54aaf5d96e0cc408ade1c537bc099f, type: 3}
   currentHealth: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   recheckTime: 0.05
   autoAttackTime: 1.2
   meleeRange: 1.5
-  maxRange: 6
+  maxRange: 10
   debugMode: 1
   target: {fileID: 0}
   lastTarget: {fileID: 0}
@@ -506,8 +506,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.17}
 --- !u!1 &2689042624613505070
 GameObject:
   m_ObjectHideFlags: 0

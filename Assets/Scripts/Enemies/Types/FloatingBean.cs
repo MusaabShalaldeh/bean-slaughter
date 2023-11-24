@@ -38,6 +38,8 @@ public class FloatingBean : Entity
         yield return new WaitForSeconds(0.25f);
 
         Debug.Log(entityName + " fell off and is dead.");
+
+        RoundsManager.instance.OnEnemyDeath();
         Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class Player : Entity
     [Header("References")]
     public PlayerAnimator playerAnimator;
     public PlayerController playerController;
+    public List<GameObject> ObjectsToDisableOnDeath;
 
     public override void OnDamageTaken()
     {
@@ -23,11 +24,14 @@ public class Player : Entity
 
     public override IEnumerator DieSequence()
     {
+        DisableObjects();
         playerController.DisableMovement();
         soundSource.PlayOneShot(HitSFX);
         soundSource.PlayOneShot(DeathSFX);
 
         playerAnimator.PlayDeathAnimation();
+        playerAnimator.SetWeaponIdleAnimation(false);
+        playerAnimator.ChangeGunConstraintWeight(0);
         Debug.Log(entityName + " is dying...");
 
         yield return new WaitForSeconds(5.0f);
@@ -42,5 +46,13 @@ public class Player : Entity
         Debug.Log("Gameover");
 
         SceneManager.LoadScene(0);
+    }
+
+    void DisableObjects()
+    {
+        foreach(GameObject obj in ObjectsToDisableOnDeath)
+        {
+            obj.SetActive(false);
+        }
     }
 }

@@ -39,13 +39,18 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("weaponState", state);
 
         if (state == false)
-            GunPositionConstraint.weight = 0;
+            ChangeGunConstraintWeight(0);
         else
-            GunPositionConstraint.weight = 1;
+            ChangeGunConstraintWeight(1);
     }
 
     public void PlayDeathAnimation()
     {
         animator.Play("Die");
+    }
+    
+    public void ChangeGunConstraintWeight(float amount)
+    {
+        GunPositionConstraint.weight = amount;
     }
 }
