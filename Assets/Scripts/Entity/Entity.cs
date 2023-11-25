@@ -19,7 +19,7 @@ public abstract class Entity : MonoBehaviour
     public AudioClip HitSFX;
 
     // Private Variables
-    [SerializeField] float currentHealth;
+    public float currentHealth;
     [HideInInspector] public bool isDead = false;
     bool hasTakenHit = false;
 

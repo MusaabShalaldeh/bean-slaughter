@@ -53,6 +53,7 @@ public class RoundsManager : MonoBehaviour
 
     void OnRoundEnd()
     {
+        Player.instance.Heal(110);
         StartRound();
     }
 
