@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
     public void OnGameStart()
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "New Game Started");
-        
-        VisualizeNumber(coinsText, UserData.instance.coins);
-        VisualizeNumber(scoreText, score);
+
+        UserData.instance.VisualizeNumber(coinsText, UserData.instance.coins);
+        UserData.instance.VisualizeNumber(scoreText, score);
     }
 
     public void OnGameEnd()
@@ -54,17 +54,12 @@ public class GameManager : MonoBehaviour
     public void EarnCoin(int amount)
     {
         UserData.instance.AddCoins(amount);
-        VisualizeNumber(coinsText, UserData.instance.coins);
+        UserData.instance.VisualizeNumber(coinsText, UserData.instance.coins);
     }
 
     public void EarnScore(int amount)
     {
         score += amount;
-        VisualizeNumber(scoreText, score);
-    }
-
-    void VisualizeNumber(TMP_Text txt, int num, string beforeText = "")
-    {
-        txt.text = beforeText + num.ToString();
+        UserData.instance.VisualizeNumber(scoreText, score);
     }
 }

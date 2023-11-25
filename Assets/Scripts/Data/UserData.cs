@@ -1,6 +1,7 @@
 using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UserData : MonoBehaviour
@@ -53,5 +54,10 @@ public class UserData : MonoBehaviour
     public void RemoveCoins(int amount)
     {
         coins -= amount;
+    }
+
+    public void VisualizeNumber(TMP_Text txt, int num, string beforeText = "")
+    {
+        txt.text = beforeText + num.ToString();
     }
 }
