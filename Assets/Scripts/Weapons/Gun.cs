@@ -36,12 +36,15 @@ public class Gun : MonoBehaviour
         Vector3 targetPostion = new Vector3(target.position.x, target.position.y + 1.2f, target.position.z);
         Vector3 direction = targetPostion - Barrel.transform.position;
 
-        Projectile projectile = b.GetComponent<Projectile>();
+        if (b != null)
+        {
+            Projectile projectile = b.GetComponent<Projectile>();
 
-        PlayAnimation();
-        PlayShootSound();
-        PlayShootEffect();
-        projectile.Shoot(direction, bulletSpeed, bulletDamage, targetTag, (int)bulletType);
+            PlayAnimation();
+            PlayShootSound();
+            PlayShootEffect();
+            projectile.Shoot(direction, bulletSpeed, bulletDamage, targetTag, (int)bulletType);
+        }
     }
 
     void PlayShootSound()
