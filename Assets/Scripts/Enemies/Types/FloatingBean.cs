@@ -1,7 +1,7 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FloatingBean : Entity
 {
@@ -9,6 +9,16 @@ public class FloatingBean : Entity
     public EnemyController enemyController;
     public EnemyAnimator enemyAnimator;
     public LootSource lootSource;
+
+    public override void OnSpawn()
+    {
+        Debug.Log("On Spawned called");
+
+        enemyController.EnableMovement();
+        enemyAnimator.SetIdleAnimation();
+        Model.transform.DOKill();
+        Model.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
 
     public override void OnDamageTaken()
     {
@@ -42,6 +52,6 @@ public class FloatingBean : Entity
 
         lootSource.DropRewards();
         RoundsManager.instance.OnEnemyDeath();
-        Destroy(gameObject);
+        ObjectPool.instance.ReturnObject(gameObject, ObjectPool.ObjectTypes.floatingBean);
     }
 }

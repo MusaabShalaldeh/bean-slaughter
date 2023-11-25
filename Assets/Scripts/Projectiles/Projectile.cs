@@ -4,27 +4,53 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [Header("References")]
+    public TrailRenderer trailRenderer;
+
     Vector3 direction;
     float speed;
     float impactDamage;
     string targetTag;
     bool isActive;
-
-    public void Shoot(Vector3 _direction, float _speed, float _impactDamage, string _targetTag)
+    bool hasBeenReset = false;
+    int bulletType;
+    
+    public void Shoot(Vector3 _direction, float _speed, float _impactDamage, string _targetTag, int _bulletType)
     {
+        trailRenderer.enabled = true;
+        hasBeenReset = false;
+        bulletType = _bulletType;
         direction = _direction;
         speed = _speed;
         targetTag = _targetTag;
         impactDamage = _impactDamage;
         isActive = true;
-        // Debug.Log("bullet fired");
-        Destroy(gameObject, 5);
+        
+        StartCoroutine(ResetBullet(5));
     }
 
     void OnTargetImpact(Entity e)
     {
         e.TakeDamage(impactDamage);
-        Destroy(gameObject);
+        StartCoroutine(ResetBullet());
+    }
+
+    IEnumerator ResetBullet(float time = 0.0f)
+    {
+        if (hasBeenReset)
+            yield break;
+
+        yield return new WaitForSeconds(time);
+
+        hasBeenReset = true;
+        trailRenderer.enabled = false;
+        direction = new Vector3(0, 0, 0);
+        speed = 0;
+        impactDamage = 0;
+        targetTag = "";
+        isActive = false;
+
+        ObjectPool.instance.ReturnObject(gameObject, (ObjectPool.ObjectTypes)bulletType);
     }
 
     void Update()

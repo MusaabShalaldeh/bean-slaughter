@@ -6,6 +6,11 @@ public class EnemyAnimator : MonoBehaviour
     public EnemyController controller;
     public Animator animator;
 
+    void Start()
+    {
+        animator.keepAnimatorStateOnDisable = true;
+    }
+
     void Update()
     {
         MovementAnimation();
@@ -24,5 +29,10 @@ public class EnemyAnimator : MonoBehaviour
     public void PlayAttackAnimation()
     {
         animator.Play("Attack");
+    }
+
+    public void SetIdleAnimation()
+    {
+        animator.Play("Idle");
     }
 }

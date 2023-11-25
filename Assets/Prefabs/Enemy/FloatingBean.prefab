@@ -5154,10 +5154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Barrel: {fileID: 2178942493305409472}
-  Bullet: {fileID: 5288248104132056383, guid: e872c0fb47184684ba2d85a8ace21886, type: 3}
   SoundSource: {fileID: 8852153671206624960}
   ShootSFX: {fileID: 8300000, guid: 8522fd17b59eb6b4794d888f58b78319, type: 3}
   ShootGFX: {fileID: 8282840898884240916}
+  bulletType: 6
   bulletDamage: 10
   bulletSpeed: 4
   targetTag: Player

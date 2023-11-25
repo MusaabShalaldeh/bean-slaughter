@@ -35,7 +35,7 @@ public class LootSource : MonoBehaviour
 
     void DropCoin(Vector3 pos)
     {
-        Instantiate(Coin, pos, Quaternion.Euler(0, 0, 0));
+        ObjectPool.instance.GetObject(ObjectPool.ObjectTypes.coin, pos);
     }
 
     Vector3 GetRandomPosition()

@@ -10,6 +10,16 @@ public class Bean : Entity
     public EnemyAnimator enemyAnimator;
     public LootSource lootSource;
 
+    public override void OnSpawn()
+    {
+        Debug.Log("On Spawned called");
+        soundSource.volume = 1.0f;
+        enemyController.EnableMovement();
+        enemyAnimator.SetIdleAnimation();
+        Model.transform.DOKill();
+        Model.transform.localScale = new Vector3 (1f, 1f, 1f);
+    }
+
     public override void OnDamageTaken()
     {
         // Debug.Log(entityName + " taken damage!");
@@ -20,6 +30,7 @@ public class Bean : Entity
             });
 
         soundSource.PlayOneShot(HitSFX);
+        CameraShaker.instance.ShakeCamera(0.15f, 1.2f);
     }
 
     public override void OnHeal()
@@ -41,6 +52,6 @@ public class Bean : Entity
         // Debug.Log(entityName + " is dead.");
         lootSource.DropRewards();
         RoundsManager.instance.OnEnemyDeath();
-        Destroy(gameObject);
+        ObjectPool.instance.ReturnObject(gameObject, ObjectPool.ObjectTypes.bean);
     }
 }

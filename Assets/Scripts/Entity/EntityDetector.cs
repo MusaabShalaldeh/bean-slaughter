@@ -22,7 +22,7 @@ public abstract class EntityDetector : MonoBehaviour
     [HideInInspector] public Entity target;
     [HideInInspector] public Entity lastTarget;
 
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(TargetingHandler());
         StartCoroutine(AttackChecker());

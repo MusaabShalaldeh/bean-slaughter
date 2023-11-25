@@ -14,6 +14,8 @@ public class CombatManager : MonoBehaviour
     public MeleeWeapon Hammer;
     public Gun Pistol;
     public PlayerAnimator pAnimator;
+    public GameObject HammerIcon;
+    public GameObject PistolIcon;
 
     // Private Variables
     [HideInInspector] public WeaponState weaponState;
@@ -63,12 +65,16 @@ public class CombatManager : MonoBehaviour
 
     private void EnableMeleeWeapon()
     {
+        HammerIcon.SetActive(false);
+        PistolIcon.SetActive(true);
         Hammer.gameObject.SetActive(true);
         Pistol.gameObject.SetActive(false);
     }
 
     private void EnableRangedWeapon()
     {
+        HammerIcon.SetActive(true);
+        PistolIcon.SetActive(false);
         Pistol.gameObject.SetActive(true);
         Hammer.gameObject.SetActive(false);
         Hammer.isActive = false;

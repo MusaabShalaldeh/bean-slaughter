@@ -498,8 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundSource: {fileID: 1357934679611170734}
   SwingSFX: {fileID: 8300000, guid: c9c135bb708ca7f4ead7d8815c8520ad, type: 3}
-  ImpactEffect: {fileID: 8634286232297293101, guid: af276342975731b40b566ebd7910f07b,
-    type: 3}
+  impactEffect: 1
   damage: 25
   targetTag: Player
   enemyHeadOffset: 1.2
