@@ -30,6 +30,7 @@ public class Bean : Entity
             });
 
         soundSource.PlayOneShot(HitSFX);
+        CameraShaker.instance.ShakeCamera(0.15f, 1.2f);
     }
 
     public override void OnHeal()
