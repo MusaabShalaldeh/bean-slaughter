@@ -76,6 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneLoader.instance.LoadLevel(0);
     }
 }
