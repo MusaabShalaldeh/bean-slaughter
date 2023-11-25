@@ -30,6 +30,11 @@ public class Player : Entity
         healthBar.Initilize(maxHealth);
     }
 
+    public override void OnSpawn()
+    {
+
+    }
+
     public override void OnDamageTaken()
     {
         // Debug.Log(entityName + " taken damage!");

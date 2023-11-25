@@ -33,6 +33,7 @@ public class EnemyController : EntityController
         if (!canMove)
             return;
 
+        Debug.Log("enemy controller update");
         HandleMovement();
     }
 
@@ -127,6 +128,9 @@ public class EnemyController : EntityController
     public void EnableMovement()
     {
         canMove = true;
+        agent.isStopped = false;
+        hasSpottedPlayer = false;
+
     }
 
     public void DisableMovement()

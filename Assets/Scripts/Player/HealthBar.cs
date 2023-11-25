@@ -25,6 +25,6 @@ public class HealthBar : MonoBehaviour
         float percentage = amount / maxHealth;
 
         Filler.fillAmount = percentage;
-        PercentageText.text = (percentage * 100).ToString() + "%";
+        PercentageText.text = Mathf.Ceil(percentage * 100).ToString() + "%";
     }
 }

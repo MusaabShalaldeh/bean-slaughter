@@ -61,14 +61,17 @@ public class RoundsManager : MonoBehaviour
     {
         for(int i = 0; i < enemiesToSpawn; i++)
         {
-            SpawnEnemy(Enemies[Random.Range(0, Enemies.Count)]);
+            SpawnEnemy(Random.Range(0, Enemies.Count));
         }
     }
 
-    void SpawnEnemy(GameObject enemy)
+    void SpawnEnemy(int num)
     {
-        Instantiate(enemy, GetRandomValidPosition(), Quaternion.Euler(0, 0, 0));
-        spawnedEnemies++;
+        GameObject obj = ObjectPool.instance.GetObject((ObjectPool.ObjectTypes)num, GetRandomValidPosition());
+        if(obj != null)
+        {
+            spawnedEnemies++;
+        }
     }
 
     public void OnEnemyDeath()

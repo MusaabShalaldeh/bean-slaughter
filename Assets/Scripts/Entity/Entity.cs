@@ -31,7 +31,13 @@ public abstract class Entity : MonoBehaviour
     public void Initiate()
     {
         currentHealth = maxHealth;
+        isDead = false;
+        hasTakenHit = false;
+
+        OnSpawn();
     }
+
+    public abstract void OnSpawn();
 
     #region Health
 

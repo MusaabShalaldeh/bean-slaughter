@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Coin : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class Coin : MonoBehaviour
 
     // Private Variables
     bool hasBeenTriggered;
+
+    void OnEnable()
+    {
+        hasBeenTriggered = false;
+        PickupEffect.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+        Model.SetActive(true);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +38,6 @@ public class Coin : MonoBehaviour
         SoundSource.PlayOneShot(PickupSFX);
 
         GameManager.instance.EarnCoin(1);
-        Destroy(gameObject, 0.8f);
+        ObjectPool.instance.ReturnObject(gameObject, ObjectPool.ObjectTypes.coin, 0.8f);
     }
 }
