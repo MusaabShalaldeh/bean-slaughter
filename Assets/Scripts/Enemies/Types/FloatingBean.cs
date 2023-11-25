@@ -52,7 +52,6 @@ public class FloatingBean : Entity
 
         lootSource.DropRewards();
         RoundsManager.instance.OnEnemyDeath();
-
         ObjectPool.instance.ReturnObject(gameObject, ObjectPool.ObjectTypes.floatingBean);
     }
 }

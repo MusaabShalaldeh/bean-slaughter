@@ -13,7 +13,7 @@ public class Bean : Entity
     public override void OnSpawn()
     {
         Debug.Log("On Spawned called");
-
+        soundSource.volume = 1.0f;
         enemyController.EnableMovement();
         enemyAnimator.SetIdleAnimation();
         Model.transform.DOKill();
@@ -52,7 +52,6 @@ public class Bean : Entity
         // Debug.Log(entityName + " is dead.");
         lootSource.DropRewards();
         RoundsManager.instance.OnEnemyDeath();
-
         ObjectPool.instance.ReturnObject(gameObject, ObjectPool.ObjectTypes.bean);
     }
 }
