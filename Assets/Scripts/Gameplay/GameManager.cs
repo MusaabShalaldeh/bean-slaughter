@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     public TMP_Text coinsText;
     public TMP_Text scoreText;
+    public GameObject ResultsScreen;
+    public TMP_Text achievedScoreText;
+    public TMP_Text maxScoreText;
+    public TMP_Text earnedCoinsText;
 
     // Private Variables
     int score;
@@ -36,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void OnGameStart()
     {
+        Time.timeScale = 1.0f;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "New Game Started");
 
         UserData.instance.VisualizeNumber(coinsText, UserData.instance.coins);
@@ -44,11 +49,17 @@ public class GameManager : MonoBehaviour
 
     public void OnGameEnd()
     {
+        Time.timeScale = 0.0f;
         UserData.instance.UpdateScore(score);
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Score Achieved", score);
 
         UserData.instance.SaveData();
-        SceneManager.LoadScene(0);
+        ;
+        UserData.instance.VisualizeNumber(maxScoreText, UserData.instance.score, "Max Score: ");
+        UserData.instance.VisualizeNumber(achievedScoreText, score, "Achieved Score: ");
+        UserData.instance.VisualizeNumber(earnedCoinsText, UserData.instance.coins, "Coins Earned: ");
+
+        ResultsScreen.SetActive(true);
     }
 
     public void EarnCoin(int amount)
@@ -61,5 +72,10 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         UserData.instance.VisualizeNumber(scoreText, score);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

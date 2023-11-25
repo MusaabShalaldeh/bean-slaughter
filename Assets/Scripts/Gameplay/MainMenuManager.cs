@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         Application.targetFrameRate = 60;
         UserData.instance.VisualizeNumber(coinsText, UserData.instance.coins);
         UserData.instance.VisualizeNumber(scoreText, UserData.instance.score);
